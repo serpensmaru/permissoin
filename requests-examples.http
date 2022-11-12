@@ -1,0 +1,97 @@
+# примеры API-запросов
+
+@baseUrl = https://localhost:8000/api
+
+# получение объявлений
+GET {{baseUrl}}/advertisements/
+Content-Type: application/json
+
+###
+
+# создание объявления
+POST {{baseUrl}}/advertisements/
+Content-Type: application/json
+Authorization: Token 902ef055a9ac93f18327f1f9c45ab059f1a62c7d
+
+{
+  "title": "Шкаф IKEA",
+  "description": "Срочно"
+}
+
+###
+
+# попытка поменять объявление
+PATCH {{baseUrl}}/advertisements/1/
+Content-Type: application/json
+Authorization: Token d9b408bf461cbf056b82beb5bc26479933459973
+
+{
+  "status": "CLOSED"
+}
+
+###
+
+# фильтрация по создателю
+GET {{baseUrl}}/advertisements/?creator=3
+Content-Type: application/json
+
+###
+
+# фильтрация по дате
+GET {{baseUrl}}/advertisements/?created_at_before=2020-10-01
+Content-Type: application/json
+
+Authorization: Token d9b408bf461cbf056b82beb5bc26479933459973
+Authorization: Token 9688cd627edfb1e747abc7cfeb8006f229480c74
+Authorization: Token 2d068af76841c48a483941dd893e42e4e003b10d
+###
+GET http://127.0.0.1:8000/adv/
+Authorization: Token d9b408bf461cbf056b82beb5bc26479933459973
+
+
+###
+GET http://127.0.0.1:8000/api/advertisements/
+
+###
+GET http://127.0.0.1:8000/api/advertisements/15/
+###
+POST http://127.0.0.1:8000/api/advertisements/
+Authorization: Token d9b408bf461cbf056b82beb5bc26479933459973
+Content-Type: application/json
+
+{
+  "title": "ddsd",
+  "description": "sdsd",
+  "status": "OPEN"
+}
+###
+DELETE http://127.0.0.1:8000/api/advertisements/16/
+Authorization: Token 9688cd627edfb1e747abc7cfeb8006f229480c74
+###
+DELETE http://127.0.0.1:8000/api/advertisements/10/
+Authorization: Token 11111111111111111
+###
+PATCH http://127.0.0.1:8000/api/advertisements/15/
+Authorization: Token 9688cd627edfb1e747abc7cfeb8006f229480c74
+Content-Type: application/json
+
+{
+  "status": "CLOSED"
+}
+
+###
+
+GET http://127.0.0.1:8000/api/advertisements/?status=OPEN
+Authorization: Token d9b408bf461cbf056b82beb5bc26479933459973
+###
+
+
+###
+
+
+
+
+
+
+
+
